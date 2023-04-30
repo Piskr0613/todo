@@ -7,6 +7,7 @@
     <TextView
         android:id="@+id/tv_assignment"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:text="hello" />
+        android:layout_height="100dp"
+        android:text="hello"
+        android:textSize="50dp"/>
 </LinearLayout>
