@@ -1,5 +1,6 @@
 package com.example.todo
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,19 +21,28 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private val data= listOf(
-        AdapterData("写作业"),
-        AdapterData("吃药")
-    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(mBinding.root)
+        val pref=getPreferences(Context.MODE_PRIVATE)
+        val editor=pref.edit()
+        val data= mutableListOf<RvAdapter.Data>()
+        var position=0
+        mBinding.button2.setOnClickListener {
+            position += 1
+            val number= position.toString()
+            val new=mBinding.editText.text.toString()
+            editor.putString(number,new)
+            editor.apply()
+            val thing=pref.getString(position.toString(),"")
+            data.add(AdapterData(thing.toString()))
+        }
         mBinding.rv.apply {
             layoutManager=LinearLayoutManager(this@MainActivity)
             adapter=RvAdapter(data)
             addItemDecoration(DividerItemDecoration(this@MainActivity,RecyclerView.VERTICAL))
         }
-        mBinding.bottom.setOnClickListener {
+        mBinding.button1.setOnClickListener {
             val intent=Intent(this,LoginActivity::class.java)
             startActivity(intent)
         }
