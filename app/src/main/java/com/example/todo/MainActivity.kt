@@ -1,5 +1,6 @@
 package com.example.todo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -30,6 +31,10 @@ class MainActivity : AppCompatActivity() {
             layoutManager=LinearLayoutManager(this@MainActivity)
             adapter=RvAdapter(data)
             addItemDecoration(DividerItemDecoration(this@MainActivity,RecyclerView.VERTICAL))
+        }
+        mBinding.bottom.setOnClickListener {
+            val intent=Intent(this,LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 }
