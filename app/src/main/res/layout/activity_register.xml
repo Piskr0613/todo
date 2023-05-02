@@ -23,6 +23,7 @@
         android:layout_marginBottom="200dp"
         android:drawableStart="@drawable/account"
         android:hint="账号"
+        android:lines="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +35,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="360dp"
         android:drawableStart="@drawable/key"
-        android:hint="密码"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        android:lines="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username1" />
@@ -47,6 +50,8 @@
         android:layout_marginBottom="300dp"
         android:drawableStart="@drawable/key"
         android:hint="确认密码"
+        android:inputType="textPassword"
+        android:lines="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password1" />
@@ -57,6 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="注册"
+        android:textColor="@color/white"
         android:background="@drawable/shape_btn2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
