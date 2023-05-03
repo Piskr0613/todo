@@ -5,9 +5,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Window
-import android.view.WindowManager
-import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -48,11 +45,12 @@ class MainActivity : AppCompatActivity() {
 
         refresh()
 
+        //跳转登录界面
         mBinding.button1.setOnClickListener {
             val intent=Intent(this,LoginActivity::class.java)
             startActivity(intent)
         }
-
+        //上下左右滑动
         val helper = ItemTouchHelper(object : ItemTouchHelper.Callback() {
             override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
                 // 允许往上往下拖拽移动
@@ -88,6 +86,7 @@ class MainActivity : AppCompatActivity() {
         helper.attachToRecyclerView(mBinding.rv)
     }
 
+    //刷新RecyclerView视图方法
     private fun refresh(){
         mBinding.rv.apply {
             layoutManager=LinearLayoutManager(this@MainActivity)
